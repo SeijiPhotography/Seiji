@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seiji Photography</title>
+<style>
+  body { margin: 0; font-family: Arial, sans-serif; }
+  .gallery { display: flex; flex-wrap: wrap; padding: 0 4px; }
+  .column { flex: 25%; max-width: 25%; padding: 0 4px; }
+  .column img { margin-top: 8px; vertical-align: middle; width: 100%; }
+  @media screen and (max-width: 800px) {
+    .column { flex: 50%; max-width: 50%; }
+  }
+  @media screen and (max-width: 600px) {
+    .column { flex: 100%; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<h2>Seiji Photography</h2>
+<p>Click on the images below for a larger view.</p>
+
+<div class="gallery">
+  <div class="column">
+    <img src="path_to_your_image" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+    <!-- more images -->
+  </div>
+  <div class="column">
+    <img src="path_to_your_image" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+    <!-- more images -->
+  </div>  
+  <div class="column">
+    <img src="path_to_your_image" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    <!-- more images -->
+  </div>
+  <div class="column">
+    <img src="path_to_your_image" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+    <!-- more images -->
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
